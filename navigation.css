@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Poppins */
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Karla */
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #212121;
+    color: #f1f1f1;
+    height: 100vh;
+}
+
+
+/* <editor-fold> */
+/* Basically that is for the header & navigation bar */
+
+
+.container {
+    margin: 0 auto;
+    padding: 0;
+    z-index: 20;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    position: relative;
+    background: #121212;
+    padding: 0 5%;
+}
+
+.nav-list {
+    height: 4rem;
+    display: inline-flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        height: auto;
+    }
+}
+
+.nav-action .links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link,
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 500;
+    color: #f1f1f1;
+}
+
+.dropdown {
+    position: absolute;
+    top: 4.1rem;
+    left: 0;
+    width: 100%;
+    background: #121212;
+    box-shadow: 0 0.2rem 0.5rem rgba(32, 7, 65, 0.14);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all 0.5s ease-in;
+    z-index: 15;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+
+}
+
+.dropdown-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.dropdown-item:not(:last-child) {
+    border-right: 1px solid #565656;
+}
+
+@media (max-width: 1200px) {
+    .dropdown-item {
+        border-right: 1px solid #565656;
+    }
+}
+
+.dropdown-item span.hidden {
+    opacity: 0;
+    transition: .3s ease-in;
+}
+
+.dropdown-item span.hidden::before {
+    content: ' ';
+}
+
+.dropdown-item:hover span.hidden {
+    opacity: 1;
+}
+
+.dropdown-item {
+    text-decoration: none;
+
+    color: #f1f1f1;
+}
+
+
+.nav-list-menu:hover .dropdown {
+    clip-path: polygon(0 0, 100% 0, 100% 102%, 0 102%);
+}
+
+.item-list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    max-width: 100%; /* Prevents stretching */
+}
+
+
+.item-img {
+    border: 1px solid #f1f1f1;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+.item-list-info {
+    position: relative;
+    width: 100%;
+}
+
+@media (max-width:730px) {
+    .nav-toggle {
+        display: block;
+    }
+    .nav-menu {
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        background: #121212; /* make it toggled using js on hamburger */
+        /*display: none;*/
+    }
+    .nav-menu.active {
+        display: block;
+    }
+    .nav-list {
+        display: block;
+        margin: 2rem 0;
+        text-align: center;
+    }
+    .nav-link {
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .dropdown {
+        top: 0;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        box-shadow: none;
+        height: 0;
+        text-align: start;
+        transition: all 0.5s ease-in;
+    }
+    .nav-list-menu:hover .dropdown {
+        height: 100%;
+        transition: all 0.5s ease-in;
+    }
+}
+
+@media (max-width:365px) {
+    .logo-img {
+        width: 10rem;
+    }
+}
+
+.item-img svg {
+    transform: scale(0.5);
+}
+
+.arrow {
+    display: inline-block;
+    transform: rotate(90deg);
+    transition: all .3s ease-in;
+    margin-left: 5px;
+}
+
+.nav-list-menu:hover .arrow,
+.nav-list-menu.open .arrow {
+    transform: rotate(-90deg); /* Rotates right on hover */
+}
+
+.nav-list-menu.open .arrow {
+    transform: rotate(-90deg); /* Rotates up when open */
+}
+
+.hamburger {
+    display: none;
+}
+
+/* Show the hamburger menu only on small screens (mobile) */
+/* Initially hide the menu to the right and links to the top */
+@media (max-width: 768px) {
+    .hamburger {
+        width: 30px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .nav-menu {
+        transition: all 0.5s ease-in;
+        position: absolute;
+        top: 8rem;
+        left: 100%;
+        z-index: 15;
+    }
+
+    .nav-action .links {
+        transition: all 0.5s ease-in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 5px 5%;
+        height: 3rem;
+        background-color: #121212;
+        position: absolute;
+        right: -100%;
+        top: 4.5rem;
+        z-index: 15;
+    }
+
+    /* Hamburger lines */
+    .hamburger .line {
+        width: 100%;
+        height: 1px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    .hamburger .line-long {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .hamburger .line-medium {
+        width: 66%;
+        margin-left: 34%;
+    }
+
+    .hamburger .line-short {
+        width: 33%;
+        margin-left: 66%;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-action .links.active {
+        right: 0;
+    }
+}
+
+/* </editor-fold> */
+
+/* <editor-fold> */
+
+/* Now let's start making the slider */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 4rem);
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1.5s ease; /* Smooth transition for fade effect */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide .content {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    transition: opacity 1.5s ease; /* Text should fade with the slide */
+}
+
+.slide .content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.slide .content p {
+    font-size: 24px;
+}
+
+.active {
+    opacity: 1; /* Fully visible */
+}
+
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.dots .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dots .dot.active {
+    background-color: #f1f1f1;
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance readability of text */
+    z-index: 5;
+}
+
+/* </editor-fold> */
+
+
+

@@ -1,0 +1,42 @@
+.container-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text-section {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    padding: 10px;
+}
+.text-section img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+.fun-facts {
+    border-left: 6px solid #f1f1f1;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.learn-more {
+    text-align: center;
+    margin-top: 20px;
+}
+.learn-more a {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}

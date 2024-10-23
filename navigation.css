@@ -17,9 +17,13 @@
 
 body {
     overflow-x: hidden;
-    background-color: #212121;
+    background-color: #060606;
     color: #f1f1f1;
     height: 100vh;
+
+    /*background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px*/
 }
 
 
@@ -31,6 +35,8 @@ body {
     margin: 0 auto;
     padding: 0;
     z-index: 20;
+    top: 0;
+    position: sticky;
 }
 
 .navigation {
@@ -105,6 +111,11 @@ body {
 
 .dropdown-item span.hidden {
     opacity: 0;
+    font-weight: bold;
+    font-size: 12px;
+    background: linear-gradient(to right, royalblue, purple); /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     transition: .3s ease-in;
 }
 
@@ -122,7 +133,6 @@ body {
     color: #f1f1f1;
 }
 
-
 .nav-list-menu:hover .dropdown {
     clip-path: polygon(0 0, 100% 0, 100% 102%, 0 102%);
 }
@@ -132,7 +142,7 @@ body {
     align-items: center;
     gap: 1rem;
     margin: 3rem 0;
-    max-width: 100%; /* Prevents stretching */
+    max-width: 100%;
 }
 
 
@@ -147,11 +157,12 @@ body {
     flex-shrink: 0;
 }
 
-
 .item-list-info {
     position: relative;
     width: 100%;
 }
+
+
 
 @media (max-width:730px) {
     .nav-toggle {
@@ -187,6 +198,7 @@ body {
         text-align: start;
         transition: all 0.5s ease-in;
     }
+
     .nav-list-menu:hover .dropdown {
         height: 100%;
         transition: all 0.5s ease-in;
@@ -304,6 +316,16 @@ body {
     overflow: hidden;
 }
 
+.slider::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #06060600, #060606ff);
+    pointer-events: none;
+    z-index: 15;
+}
+
 .slide {
     position: absolute;
     top: 0;
@@ -324,10 +346,11 @@ body {
 
 .slide .content {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     bottom: 20%;
-    left: 50%;
+    left: 20%;
     transform: translateX(-50%);
-    text-align: center;
     color: #fff;
     z-index: 10;
     transition: opacity 1.5s ease; /* Text should fade with the slide */
@@ -343,14 +366,19 @@ body {
     font-size: 24px;
 }
 
+.slide h1 {
+    -webkit-text-stroke: 1px #fff;
+    color: #ffffff00;
+}
+
 .active {
-    opacity: 1; /* Fully visible */
+    opacity: 1;
 }
 
 .dots {
     position: absolute;
-    bottom: 10px;
-    left: 50%;
+    bottom: 35%;
+    left: 20%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
@@ -358,8 +386,8 @@ body {
 }
 
 .dots .dot {
-    height: 15px;
-    width: 15px;
+    height: 12px;
+    width: 12px;
     margin: 0 5px;
     border: 1px solid #f1f1f1;
     border-radius: 50%;
@@ -379,11 +407,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance readability of text */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 5;
 }
 
 /* </editor-fold> */
-
 
 

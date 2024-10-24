@@ -1,10 +1,6 @@
-
-
 /* <editor-fold> */
-/* Basically that is for the header & navigation bar */
 
-
-.container {
+.navigation-container {
     margin: 0 auto;
     padding: 0;
     z-index: 20;
@@ -12,7 +8,7 @@
     position: sticky;
 }
 
-.container::after {
+.navigation-container::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -22,7 +18,7 @@
     background: linear-gradient(to right, royalblue, purple);
 }
 
-.navigation {
+.navigation-container .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +28,7 @@
     padding: 0 5%;
 }
 
-.nav-list {
+.navigation-container .nav-list {
     height: 4rem;
     display: inline-flex;
     gap: 2rem;
@@ -41,19 +37,19 @@
 }
 
 @media (max-width: 768px) {
-    .nav-list {
+    .navigation-container .nav-list {
         height: auto;
     }
 }
 
-.nav-action .links {
+.navigation-container .nav-action .links {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.nav-link,
-.btn {
+.navigation-container .nav-link,
+.navigation-container .btn {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -61,7 +57,7 @@
     color: #f1f1f1;
 }
 
-.dropdown {
+.navigation-container .dropdown {
     position: absolute;
     top: 4rem;
     left: 0;
@@ -74,52 +70,52 @@
 
 }
 
-.dropdown-inner {
+.navigation-container .dropdown-inner {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 1rem;
     padding: 2rem;
 }
 
-.dropdown-item:not(:last-child) {
+.navigation-container .dropdown-item:not(:last-child) {
     border-right: 1px solid #565656;
 }
 
 @media (max-width: 1200px) {
-    .dropdown-item {
+    .navigation-container .dropdown-item {
         border-right: 1px solid #565656;
     }
 }
 
-.dropdown-item span.hidden {
+.navigation-container .dropdown-item span.hidden {
     opacity: 0;
     font-weight: bold;
     font-size: 12px;
-    background: linear-gradient(to right, royalblue, purple); /* Gradient colors */
+    background: linear-gradient(to right, royalblue, purple);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: .3s ease-in;
 }
 
-.dropdown-item span.hidden::before {
+.navigation-container .dropdown-item span.hidden::before {
     content: ' ';
 }
 
-.dropdown-item:hover span.hidden {
+.navigation-container .dropdown-item:hover span.hidden {
     opacity: 1;
 }
 
-.dropdown-item {
+.navigation-container .dropdown-item {
     text-decoration: none;
 
     color: #f1f1f1;
 }
 
-.nav-list-menu:hover .dropdown {
+.navigation-container .nav-list-menu:hover .dropdown {
     clip-path: polygon(0 0, 100% 0, 100% 102%, 0 102%);
 }
 
-.item-list {
+.navigation-container .item-list {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -128,7 +124,7 @@
 }
 
 
-.item-img {
+.navigation-container .item-img {
     border: 1px solid #f1f1f1;
     width: 4rem;
     height: 4rem;
@@ -139,7 +135,7 @@
     flex-shrink: 0;
 }
 
-.item-list-info {
+.navigation-container .item-list-info {
     position: relative;
     width: 100%;
 }
@@ -147,10 +143,10 @@
 
 
 @media (max-width:730px) {
-    .nav-toggle {
+    .navigation-container .nav-toggle {
         display: block;
     }
-    .nav-menu {
+    .navigation-container .nav-menu {
         position: absolute;
         top: 4rem;
         left: 0;
@@ -158,20 +154,20 @@
         background: #121212; /* make it toggled using js on hamburger */
         /*display: none;*/
     }
-    .nav-menu.active {
+    .navigation-container .nav-menu.active {
         display: block;
     }
-    .nav-list {
+    .navigation-container .nav-list {
         display: block;
         margin: 2rem 0;
         text-align: center;
     }
-    .nav-link {
+    .navigation-container .nav-link {
         padding: 0 2rem;
         display: flex;
         justify-content: space-between;
     }
-    .dropdown {
+    .navigation-container .dropdown {
         top: 0;
         position: relative;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -181,46 +177,45 @@
         transition: all 0.5s ease-in;
     }
 
-    .nav-list-menu:hover .dropdown {
+    .navigation-container .nav-list-menu:hover .dropdown {
         height: 100%;
         transition: all 0.5s ease-in;
     }
 }
 
 @media (max-width:365px) {
-    .logo-img {
+    .navigation-container .logo-img {
         width: 10rem;
     }
 }
 
-.item-img svg {
+.navigation-container .item-img svg {
     transform: scale(0.5);
 }
 
-.arrow {
+.navigation-container .arrow {
     display: inline-block;
     transform: rotate(90deg);
     transition: all .3s ease-in;
     margin-left: 5px;
 }
 
-.nav-list-menu:hover .arrow,
-.nav-list-menu.open .arrow {
-    transform: rotate(-90deg); /* Rotates right on hover */
+.navigation-container .nav-list-menu:hover .arrow,
+.navigation-container .nav-list-menu.open .arrow {
+    transform: rotate(-90deg);
 }
 
-.nav-list-menu.open .arrow {
-    transform: rotate(-90deg); /* Rotates up when open */
+.navigation-container .nav-list-menu.open .arrow {
+    transform: rotate(-90deg);
 }
 
-.hamburger {
+.navigation-container .hamburger {
     display: none;
 }
 
-/* Show the hamburger menu only on small screens (mobile) */
-/* Initially hide the menu to the right and links to the top */
+
 @media (max-width: 768px) {
-    .hamburger {
+    .navigation-container .hamburger {
         width: 30px;
         height: 25px;
         display: flex;
@@ -230,7 +225,7 @@
         cursor: pointer;
     }
 
-    .nav-menu {
+    .navigation-container .nav-menu {
         transition: all 0.5s ease-in;
         position: absolute;
         top: 8rem;
@@ -238,7 +233,7 @@
         z-index: 15;
     }
 
-    .nav-action .links {
+    .navigation-container .nav-action .links {
         transition: all 0.5s ease-in;
         display: flex;
         justify-content: space-between;
@@ -254,33 +249,33 @@
     }
 
     /* Hamburger lines */
-    .hamburger .line {
+    .navigation-container .hamburger .line {
         width: 100%;
         height: 1px;
         background-color: #f1f1f1;
         border-radius: 5px;
     }
 
-    .hamburger .line-long {
+    .navigation-container .hamburger .line-long {
         width: 100%;
         margin-left: 0;
     }
 
-    .hamburger .line-medium {
+    .navigation-container .hamburger .line-medium {
         width: 66%;
         margin-left: 34%;
     }
 
-    .hamburger .line-short {
+    .navigation-container .hamburger .line-short {
         width: 33%;
         margin-left: 66%;
     }
 
-    .nav-menu.active {
+    .navigation-container .nav-menu.active {
         left: 0;
     }
 
-    .nav-action .links.active {
+    .navigation-container .nav-action .links.active {
         right: 0;
     }
 }
@@ -288,8 +283,6 @@
 /* </editor-fold> */
 
 /* <editor-fold> */
-
-/* Now let's start making the slider */
 
 .slider {
     position: relative;
@@ -308,7 +301,7 @@
     z-index: 15;
 }
 
-.slide {
+.slider .slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -316,46 +309,45 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0; /* Start hidden */
-    transition: opacity 1.5s ease; /* Smooth transition for fade effect */
+    opacity: 0;
+    transition: opacity 1.5s ease;
 }
 
-.slide img {
+.slider .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.slide .content {
+.slider .slide .content {
     position: absolute;
     bottom: 20%;
     left: 20%;
     color: #f1f1f1;
     z-index: 10;
-    transition: opacity 1.5s ease; /* Text should fade with the slide */
+    transition: opacity 1.5s ease;
 }
 
-.slide .content h1 {
+.slider .slide .content h1 {
     font-size: 48px;
     font-weight: bold;
-
 }
 
-.slide .content p {
+.slider .slide .content p {
     font-size: 16px;
     max-width: 400px;
 }
 
-.slide h1 {
+.slider .slide h1 {
     -webkit-text-stroke: 1px #fff;
     color: #ffffff00;
 }
 
-.active {
+.slider .active {
     opacity: 1;
 }
 
-.dots {
+.slider .dots {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -365,7 +357,7 @@
     z-index: 120;
 }
 
-.dots .dot {
+.slider .dots .dot {
     height: 12px;
     width: 12px;
     margin: 0 5px;
@@ -376,11 +368,11 @@
     transition: background-color 0.3s ease;
 }
 
-.dots .dot.active {
+.slider .dots .dot.active {
     background-color: #f1f1f1;
 }
 
-.slide::before {
+.slider .slide::before {
     content: "";
     position: absolute;
     top: 0;
@@ -393,34 +385,4 @@
 
 /* </editor-fold> */
 
-.quote {
-    text-align: center;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: 'Arial', sans-serif;
-}
-
-.brackets {
-    font-size: 48px;
-    font-style: italic;
-    color: #888;
-    margin: 0;
-    padding: 0;
-}
-
-.quote-text {
-    font-size: 24px;
-    font-style: italic;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #333;
-}
-
-.author {
-    font-size: 18px;
-
-    color: #555;
-    font-style: italic;
-}
 

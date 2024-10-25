@@ -3,7 +3,7 @@
 .navigation-container {
     margin: 0 auto;
     padding: 0;
-    z-index: 20;
+    z-index: 25;
     top: 0;
     position: sticky;
 }
@@ -168,6 +168,7 @@
         justify-content: space-between;
     }
     .navigation-container .dropdown {
+        overflow-x: scroll;
         top: 0;
         position: relative;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -354,7 +355,7 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    z-index: 120;
+    z-index: 20;
 }
 
 .slider .dots .dot {
@@ -381,6 +382,15 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .slider .slide .text-content {
+        text-align: center;
+    }
+    .item-list {
+        display: none;
+    }
 }
 
 /* </editor-fold> */

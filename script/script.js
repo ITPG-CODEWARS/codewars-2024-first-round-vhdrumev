@@ -1,30 +1,34 @@
 let slideIndex = 0;
 let slides = document.getElementsByClassName("slide");
 let dots = document.getElementsByClassName("dot");
+let timeoutId;
 
 showSlides();
 
 function showSlides() {
-    for (let i = 0; i < slides.length; i++) {
+    for (let i = 0; i < slides.length; i++)
         slides[i].style.opacity = "0";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
-    for (let i = 0; i < dots.length; i++) {
+    slides[slideIndex].style.opacity = "1";
+
+    for (let i = 0; i < dots.length; i++)
         dots[i].className = dots[i].className.replace(" active", "");
-    }
+    dots[slideIndex].className += " active";
 
-    slides[slideIndex - 1].style.opacity = "1";
-    dots[slideIndex - 1].className += " active";
-
-    setTimeout(showSlides, 5000);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(showSlides, 5000);
+    slideIndex++;
+    if (slideIndex >= slides.length)
+        slideIndex = 0;
 }
 
 function currentSlide(n) {
-    slideIndex = n - 1;
+    slideIndex = n;
     showSlides();
+}
+for (let i = 0; i < dots.length; i++) {
+    dots[i].addEventListener('click', function() {
+        currentSlide(i);
+    });
 }
 
 const hamburger = document.querySelector('.hamburger');
@@ -39,5 +43,22 @@ document.querySelectorAll('.nav-list-menu > .nav-link').forEach(link => {
         event.preventDefault();
         const parentLi = this.parentElement;
         parentLi.classList.toggle('open');
+    });
+});
+
+const backToTopButton = document.getElementById("backToTop");
+const pageHeight = document.documentElement.scrollHeight;
+window.onscroll = function() {
+    if (document.body.scrollTop > 540 || document.documentElement.scrollTop > 540) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
+
+backToTopButton.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
 });

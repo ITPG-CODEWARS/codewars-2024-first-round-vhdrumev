@@ -132,6 +132,10 @@
 
 
 @media (max-width: 768px) {
+    .item-list {
+        display: none !important;
+    }
+
     .container-main .text-section {
         flex-direction: column;
     }

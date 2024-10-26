@@ -131,7 +131,7 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .item-list {
         display: none !important;
     }

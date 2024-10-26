@@ -1,0 +1,112 @@
+/* Start everything with classname .mega-menu */
+
+.mega-menu {
+    width: 100%;
+    background-color: #121212;
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 5%;
+    height: 4rem;
+}
+
+.mega-menu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, royalblue, purple);
+}
+
+.mega-menu .menu-content .main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mega-menu .menu-content li {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.mega-menu .menu-content a {
+    text-decoration: none;
+    color: #f1f1f1;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu {
+    background-color: #121212;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    transition: height 0.3s ease;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+}
+
+.mega-menu .menu-content .main-menu .menu-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    height: auto;
+    padding: 20px;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper {
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option {
+    display: flex;
+    align-items: center;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option .icon {
+    height: 48px;
+    width: 48px;
+    border: 1px solid #f1f1f1;
+    margin-right: 20px;
+}
+
+
+
+
+
+
+
+
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item .title {
+    color: royalblue;
+    font-size: 1.2em;
+    margin: 0 5%;
+    padding: 10px 0;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option {
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option .icon img {
+    width: 100%;
+    height: auto;
+}
+
+

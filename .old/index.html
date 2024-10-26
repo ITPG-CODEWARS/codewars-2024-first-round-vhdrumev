@@ -16,11 +16,10 @@
     <meta property="og:type" content="website" />
 
     <title>Trains</title>
-    <link rel="stylesheet" type="text/css" href="../style/navigation.css" />
-    <link rel="stylesheet" type="text/css" href="../style/main.css" />
-    <link rel="stylesheet" type="text/css" href="../style/footer.css" />
-    <link rel="stylesheet" type="text/css" href="../style/default.css" />
-    <link rel="stylesheet" type="text/css" href="../style/template.css" />
+    <link rel="stylesheet" type="text/css" href="style/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="style/main.css" />
+    <link rel="stylesheet" type="text/css" href="style/footer.css" />
+    <link rel="stylesheet" type="text/css" href="style/default.css" />
 </head>
 <body>
 
@@ -226,26 +225,141 @@
         </nav>
     </section>
 
+    <section class="slider">
+        <div class="slide active">
+            <img src="public/image/slide1.jpg" alt="Slide 1" />
+            <div class="content">
+                <h1>Train Cockpit</h1>
+                <p>The train cockpit is a high-tech control center where the engineer navigates and manages the train's operations.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="public/image/slide2.jpg" alt="Slide 2" />
+            <div class="content">
+                <h1>Train Station</h1>
+                <p>A train station is a bustling hub where passengers board and disembark from trains, often featuring waiting areas, shops, and ticket counters.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="public/image/slide3.jpg" alt="Slide 3" />
+            <div class="content">
+                <h1>Train Speeds</h1>
+                <p>Train speeds vary widely, with high-speed trains reaching up to 300 km/h (186 mph) while regular commuter trains typically travel between 80 to 160 km/h (50 to 99 mph).</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="public/image/slide4.jpg" alt="Slide 4" />
+            <div class="content">
+                <h1>Train Efficiency</h1>
+                <p>rain efficiency is measured by its ability to move passengers or cargo quickly and sustainably, often characterized by high capacity, low energy consumption, and minimal emissions per distance traveled.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="public/image/slide5.jpg" alt="Slide 5" />
+            <div class="content">
+                <h1>Train Routes</h1>
+                <p>The longest train route in the world is the Trans-Siberian Railway, stretching about 9,289 kilometers (5,772 miles) from Moscow to Vladivostok, crossing multiple time zones and diverse landscapes.</p>
+            </div>
+        </div>
+
+        <div class="progress"></div>
+
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+        <div class="overlay"></div>
+    </section>
+
 </header>
 
-<main class="main-content">
+<main class="main-section">
 
-    <section class="main-title">
-        <h1>Title</h1>
+    <section class="quote">
+        <h1 class="brackets">“”</h1>
+        <p class="quote-text">The thing about trains... it doesn’t matter where they’re going. What matters is deciding to get on.</p>
+        <p class="author">— Victor Hugo</p>
     </section>
 
-    <section class="subtitle theme">
-        <h2>SubTitle</h2>
-    </section>
+    <div class="container-main">
+        <h1>How Do Trains Work?</h1>
 
-    <section class="paragraph">
-        <p>Lorem ipsum dolor sit amet. Et magni modi non nisi molestias hic labore error est facere eligendi sit sunt porro quo dolorem dolor hic blanditiis esse. Ut perferendis sunt sed inventore minus non consectetur quasi et provident unde! Et reiciendis accusamus ab consequatur nesciunt ut earum eligendi ea praesentium exercitationem ut quod inventore ea expedita iste. Sed magni voluptatem et atque facere et itaque obcaecati est quae fugiat. </p>
-    </section>
+        <div class="content">
+            <div class="separator">
+                <div class="text-section">
+                    <img src="publicmage/slide1.jpg" alt="Train Diagram" />
+                    <div class="text-content">
+                        <a href="#"><h3>Understanding Train Mechanics</h3></a>
+                        <p>Trains operate through a combination of powerful engines, specially designed tracks, and intricate signaling systems. The basic mechanism involves the engine generating power, which is transmitted to the wheels, enabling the train to move along the tracks.</p>
+                    </div>
+                </div>
+                <div class="fun-facts">
+                    <h3>Fun Facts About Trains</h3>
+                    <p>Did you know that the first steam locomotive was built in 1804? Trains have come a long way since then, evolving into the high-speed marvels we see today!</p>
+                </div>
+            </div>
 
-    <section class="image">
-        <img src="#" alt="banner" />
-    </section>
+            <div class="separator">
+                <div class="text-section">
+                    <div class="text-content">
+                        <h3>Components of a Train</h3>
+                        <p>A train consists of several components, including the locomotive (the engine), passenger or freight cars, and the coupling systems that connect them. The tracks are laid out in a specific way to ensure smooth and efficient travel.</p>
+                    </div>
+                    <img src="publicmage/slide2.jpg" alt="Train Components" />
+                </div>
+                <div class="fun-facts">
+                    <h3>Fun Facts About Trains</h3>
+                    <p>Did you know that the first steam locomotive was built in 1804? Trains have come a long way since then, evolving into the high-speed marvels we see today!</p>
+                </div>
+            </div>
 
+            <div class="separator">
+                <div class="text-section">
+                    <img src="publicmage/slide3.jpg" alt="Signaling System" />
+                    <div class="text-content">
+                        <h3>Signaling Systems</h3>
+                        <p>Train signaling systems are essential for ensuring safety and coordination between trains. Signals indicate whether tracks are clear or if a train should stop or slow down, preventing collisions and ensuring timely arrivals.</p>
+                    </div>
+                </div>
+                <div class="fun-facts">
+                    <h3>Fun Facts About Trains</h3>
+                    <p>Did you know that the first steam locomotive was built in 1804? Trains have come a long way since then, evolving into the high-speed marvels we see today!</p>
+                </div>
+            </div>
+
+            <div class="separator">
+                <div class="text-section">
+                    <div class="text-content">
+                        <h3>Components of a Train</h3>
+                        <p>A train consists of several components, including the locomotive (the engine), passenger or freight cars, and the coupling systems that connect them. The tracks are laid out in a specific way to ensure smooth and efficient travel.</p>
+                    </div>
+                    <img src="publicmage/slide4.jpg" alt="Train Components" />
+                </div>
+                <div class="fun-facts">
+                    <h3>Fun Facts About Trains</h3>
+                    <p>Did you know that the first steam locomotive was built in 1804? Trains have come a long way since then, evolving into the high-speed marvels we see today!</p>
+                </div>
+            </div>
+
+            <div class="separator">
+                <div class="text-section">
+                    <img src="publicmage/slide5.jpg" alt="Signaling System" />
+                    <div class="text-content">
+                        <h3>Signaling Systems</h3>
+                        <p>Train signaling systems are essential for ensuring safety and coordination between trains. Signals indicate whether tracks are clear or if a train should stop or slow down, preventing collisions and ensuring timely arrivals.</p>
+                    </div>
+                </div>
+                <div class="fun-facts">
+                    <h3>Fun Facts About Trains</h3>
+                    <p>Did you know that the first steam locomotive was built in 1804? Trains have come a long way since then, evolving into the high-speed marvels we see today!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </main>
 
@@ -294,8 +408,8 @@
 <button id="backToTop" class="back-to-top">↑ Back to Top</button>
 
 <!-- Scripts here -->
-<script type="text/javascript" src="../script/background.js"></script>
-<script type="text/javascript" src="../script/script.js"></script>
+<script type="text/javascript" src="script/background.js"></script>
+<script type="text/javascript" src="script/script.js"></script>
 
 </body>
 </html>

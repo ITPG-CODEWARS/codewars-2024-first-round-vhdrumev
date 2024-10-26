@@ -1,0 +1,135 @@
+/* Gallery and lightbox Layout */
+.gallery ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.gallery ul li img {
+    width: 100px;
+    cursor: pointer;
+}
+
+.image-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+/* Image styling */
+.image-wrapper img {
+    width: 100%; /* Ensure it covers the container */
+    height: auto; /* Maintain aspect ratio */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Image Counter styling */
+.image-counter {
+    margin-top: 10px;
+    color: #fff; /* Change color to white for better contrast */
+    font-size: 18px; /* Increase font size for readability */
+    text-align: center; /* Center the counter */
+    position: relative; /* Position relative to image wrapper */
+    z-index: 10; /* Make sure it appears above the image */
+}
+
+/* Slide-out classes */
+.image-wrapper img.slide-out-left {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.image-wrapper img.slide-out-right {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Slide-in classes */
+.image-wrapper img.slide-in-left {
+    opacity: 1;
+    transform: translateX(0)
+}
+
+.image-wrapper img.slide-in-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.lightbox {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0s 0.5s; /* Delays visibility until after opacity transition */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vh;
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+/* Show class for fade-in effect */
+.lightbox.show {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+/* Overlay styling */
+body.show-lightbox::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    visibility: hidden;
+}
+
+/* Show overlay with fade-in */
+body.show-lightbox::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Navigation arrows */
+.prev-arrow, .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* Change to white for visibility */
+    z-index: 10; /* Ensure buttons are above the overlay */
+}
+
+.prev-arrow { left: 10px; }
+.next-arrow { right: 10px; }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* Change to white for visibility */
+    z-index: 10; /* Ensure button is above the overlay */
+}

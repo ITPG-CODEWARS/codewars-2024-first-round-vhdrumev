@@ -3,33 +3,50 @@ let slides = document.getElementsByClassName("slide");
 let dots = document.getElementsByClassName("dot");
 let timeoutId;
 
+let timeout = 5000;
+let firstSlidePassed = false;
+
 showSlides();
 
 function showSlides() {
-    for (let i = 0; i < slides.length; i++)
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.opacity = "0";
-    slides[slideIndex].style.opacity = "1";
+        slides[i].classList.remove("active"); // Remove active class from all slides
+    }
 
-    for (let i = 0; i < dots.length; i++)
+    // Show current slide with zoom effect
+    slides[slideIndex].style.opacity = "1";
+    slides[slideIndex].classList.add("active"); // Add active class to the current slide
+
+    for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
+    }
     dots[slideIndex].className += " active";
 
     clearTimeout(timeoutId);
     timeoutId = setTimeout(showSlides, 5000);
+    firstSlidePassed = true;
+
     slideIndex++;
-    if (slideIndex >= slides.length)
+    if (slideIndex >= slides.length) {
         slideIndex = 0;
+    }
 }
 
 function currentSlide(n) {
     slideIndex = n;
     showSlides();
 }
+
 for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener('click', function() {
         currentSlide(i);
     });
 }
+
+
+
+
 
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');

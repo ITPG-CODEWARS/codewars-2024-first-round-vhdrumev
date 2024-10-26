@@ -285,6 +285,46 @@
 
 /* <editor-fold> */
 
+@keyframes zoomInOut {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    40% {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    80% {
+        transform: translate(-50%, -50%) scale(1.05);;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+.progress {
+    height: 2px;
+    background-color: #343434;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: progress 5s infinite;
+    z-index: 500;
+    transform: scaleX(0);
+}
+
+@keyframes progress {
+    0% {
+        transform: scaleX(0);
+    }
+    90% {
+        transform: scaleX(1);
+    }
+}
+
+
 .slider {
     position: relative;
     width: 100%;
@@ -303,15 +343,15 @@
 }
 
 .slider .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
     opacity: 0;
-    transition: opacity 1.5s ease;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    transform-origin: center;
+    width: 105%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .slider .slide img {
@@ -346,6 +386,7 @@
 
 .slider .active {
     opacity: 1;
+    animation: zoomInOut 5s infinite;
 }
 
 .slider .dots {
@@ -355,6 +396,7 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    align-items: center;
     z-index: 20;
 }
 
@@ -393,6 +435,8 @@
         display: none;
     }
 }
+
+
 
 /* </editor-fold> */
 

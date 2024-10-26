@@ -34,5 +34,9 @@
 
 .main-content .subtitle::after {
     right: 0;
-    background: linear-gradient(to right, #652eaa, orange);
+    background: linear-gradient(to right, #652eaa, #741492);
+}
+
+.main-content .paragraph {
+    text-align: justify;
 }

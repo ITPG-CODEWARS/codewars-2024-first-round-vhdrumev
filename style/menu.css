@@ -1,5 +1,3 @@
-/* Start everything with classname .mega-menu */
-
 .mega-menu {
     width: 100%;
     background-color: #121212;
@@ -30,7 +28,7 @@
 
 .mega-menu .menu-content li {
     list-style: none;
-    padding: 35px 30px;
+    padding: 40px 30px;
 }
 
 .mega-menu .menu-content a {
@@ -38,25 +36,48 @@
     color: #f1f1f1;
 }
 
+.mega-menu .menu-content .main-menu .dropdown-list {
+    margin-top: 20px;
+}
+
 .mega-menu .menu-content .main-menu .dropdown-menu {
     background-color: #121212;
     left: 0;
     width: 100%;
     position: absolute;
-    transition: height 0.3s ease;
+    transition: height 0.3s ease, opacity 0.3s ease 0.5s;
     opacity: 0;
     overflow: hidden;
     height: 0;
 }
 
+
+
 .mega-menu .menu-content .main-menu .menu-item:hover .dropdown-menu {
     display: block;
     opacity: 1;
     height: auto;
-    padding: 20px;
+    padding: 30px 0;
 }
 
-.mega-menu .menu-content .main-menu .menu-item .dropdown-menu .dropdown-item:not(:last-child) {
+.mega-menu .menu-content .main-menu .menu-item .dropdown-item::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to right, royalblue, purple);
+}
+
+.mega-menu .menu-content .main-menu .menu-item:not(:hover) .dropdown-menu {
+    transition: height 0.3s ease, opacity 0.3s ease 0.5s;
+    opacity: 0;
+    height: 0;
+    padding: 0;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .dropdown-item:not(:last-child) {
     border-right: 1px solid #343434;
 }
 
@@ -79,14 +100,6 @@
     margin-right: 20px;
 }
 
-
-
-
-
-
-
-
-
 .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item {
     width: 100%;
     padding: 10px 0;
@@ -95,8 +108,19 @@
 .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item .title {
     color: royalblue;
     font-size: 1.2em;
-    margin: 0 5%;
-    padding: 10px 0;
+    margin: 0 20px;
+    padding: 0 10px 0 10px;
+    position: relative;
+}
+
+.mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item .title::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 15%;
+    bottom: 00%;
+    left: 10px;
+    background-color: #343434;
 }
 
 .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option {
@@ -112,10 +136,6 @@
     width: 100%;
     height: auto;
 }
-
-
-
-
 
 .mega-menu .hamburger-menu {
     height: 24px;
@@ -151,10 +171,29 @@
     display: flex;
 }
 
+.mega-menu .contact .button-link {
+    text-decoration: none;
+    color: #f1f1f1;
+}
 
+.mega-menu .menu-content .main-menu .menu-item .down-arrow {
+    display: inline-block;
+    transform: rotate(-90deg);
+    margin-left: 10px;
+}
 
+.mega-menu .menu-content .main-menu .menu-item:hover .down-arrow,
+.mega-menu .menu-content .main-menu .menu-item:hover .dropdown-menu .down-arrow,
+.mega-menu .menu-content .main-menu .menu-item .item-link:hover + .down-arrow {
+    transform: rotate(90deg);
+}
 
 @media only screen and (max-width: 768px) {
+
+    .mega-menu * {
+        font-size: small;
+    }
+
     .mega-menu .hamburger-menu {
         opacity: 1;
         visibility: visible;
@@ -176,9 +215,8 @@
     }
 
     .mega-menu .menu-content .main-menu .dropdown-menu {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Columns with equal width */
-        gap: 10px;
+        position: absolute;
+        top: 4rem;
     }
 
     .mega-menu .menu-content .main-menu .dropdown-menu .dropdown-item {
@@ -190,15 +228,37 @@
         align-items: center;
     }
 
+    .mega-menu .menu-content .main-menu {
+        position: absolute;
+        width: 100%;
+        background: #121212;
+        top: 3rem;
+        padding: 0 20px;
+    }
+
+    .mega-menu .menu-content .main-menu::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(to right, royalblue, purple);
+        z-index: 1;
+    }
+
+    .mega-menu .menu-content .main-menu .menu-item {
+        padding: 30px 0;
+    }
+
     .mega-menu .menu-content .main-menu .dropdown-menu .dropdown-item .list-option {
-        flex: none;
         padding: 20px;
         text-align: center;
         height: 100px;
     }
 
-
     .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item .title {
+        height: 200px;
         top: 0;
     }
 
@@ -206,8 +266,30 @@
     .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option p {
         display: none;
     }
+
+    .mega-menu .contact {
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        height: 3rem;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mega-menu .contact::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, royalblue, purple);
+    }
+
+    .mega-menu .contact .button-link {
+        position: relative;
+        top: 28%;
+    }
+
 }
-
-
-
-

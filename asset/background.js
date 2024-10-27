@@ -1,24 +1,34 @@
 const container = document.getElementById('dot-container');
 const dotSize = 4;
 const spacing = 30;
-const gridRows = Math.ceil(window.innerHeight / spacing);
-const gridCols = Math.ceil(window.innerWidth / spacing);
 const highlightDuration = 500;
-
 const baseColor = 'rgba(37, 37, 37, 1)';
 const highlightColor = 'rgba(96, 52, 176, 1)';
 
-for (let row = 0; row < gridRows; row++) {
-    for (let col = 0; col < gridCols; col++) {
-        const dot = document.createElement('div');
-        dot.classList.add('background-dot');
-        dot.style.top = `${row * spacing}px`;
-        dot.style.left = `${col * spacing}px`;
-        container.appendChild(dot);
+let gridRows, gridCols;
+let interactionEnabled = false;
+
+function createGrid() {
+    container.innerHTML = '';
+    gridRows = Math.ceil(window.innerHeight / spacing);
+    gridCols = Math.ceil(window.innerWidth / spacing);
+
+    for (let row = 0; row < gridRows; row++) {
+        for (let col = 0; col < gridCols; col++) {
+            const dot = document.createElement('div');
+            dot.classList.add('background-dot');
+            dot.style.top = `${row * spacing}px`;
+            dot.style.left = `${col * spacing}px`;
+            dot.style.backgroundColor = baseColor;
+            container.appendChild(dot);
+        }
     }
 }
+createGrid();
 
 document.addEventListener('mousemove', (e) => {
+    if (!interactionEnabled) return;
+
     const dots = document.querySelectorAll('.background-dot');
     dots.forEach(dot => {
         const rect = dot.getBoundingClientRect();
@@ -41,3 +51,21 @@ document.addEventListener('mousemove', (e) => {
         }, highlightDuration);
     });
 });
+
+// Toggle interaction on "E" key press
+document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'e') {
+        interactionEnabled = !interactionEnabled;
+
+        if (!interactionEnabled) {
+            const dots = document.querySelectorAll('.background-dot');
+            dots.forEach(dot => {
+                dot.style.backgroundColor = baseColor;
+            });
+        }
+
+        console.log(`Interaction ${interactionEnabled ? 'enabled' : 'disabled'}`);
+    }
+});
+
+window.addEventListener('resize', createGrid);

@@ -30,7 +30,7 @@
 
 .mega-menu .menu-content li {
     list-style: none;
-    padding: 0 20px;
+    padding: 35px 30px;
 }
 
 .mega-menu .menu-content a {
@@ -54,6 +54,10 @@
     opacity: 1;
     height: auto;
     padding: 20px;
+}
+
+.mega-menu .menu-content .main-menu .menu-item .dropdown-menu .dropdown-item:not(:last-child) {
+    border-right: 1px solid #343434;
 }
 
 .mega-menu .menu-content .main-menu .dropdown-menu .wrapper {
@@ -108,5 +112,102 @@
     width: 100%;
     height: auto;
 }
+
+
+
+
+
+.mega-menu .hamburger-menu {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.mega-menu .hamburger-menu .line {
+    height: 1px;
+    background-color: #f1f1f1;
+}
+
+.mega-menu .hamburger-menu .long-line {
+    width: 100%;
+}
+
+.mega-menu .hamburger-menu .medium-line {
+    width: 66%;
+}
+
+.mega-menu .hamburger-menu .short-line {
+    width: 33%;
+}
+
+.mega-menu .menu-content,
+.mega-menu .contact {
+    display: flex;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .mega-menu .hamburger-menu {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+    }
+
+    .mega-menu .menu-content,
+    .mega-menu .contact {
+        display: none;
+    }
+
+    .mega-menu .active {
+        display: block;
+        position: absolute;
+        top: 4rem;
+        background-color: #121212;
+        width: 100%;
+        left: 0;
+    }
+
+    .mega-menu .menu-content .main-menu .dropdown-menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Columns with equal width */
+        gap: 10px;
+    }
+
+    .mega-menu .menu-content .main-menu .dropdown-menu .dropdown-item {
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        align-items: center;
+    }
+
+    .mega-menu .menu-content .main-menu .dropdown-menu .dropdown-item .list-option {
+        flex: none;
+        padding: 20px;
+        text-align: center;
+        height: 100px;
+    }
+
+
+    .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .dropdown-item .title {
+        top: 0;
+    }
+
+    .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option .icon,
+    .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option p {
+        display: none;
+    }
+}
+
+
 
 

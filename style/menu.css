@@ -5,9 +5,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    padding: 10px 5%;
+    position: fixed;
+    padding: 10px calc((100vw - 1200px) / 2);
     height: 4rem;
+    z-index: 9999;
 }
 
 .mega-menu::after {
@@ -18,6 +19,10 @@
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, royalblue, purple);
+}
+
+.mega-menu .menu-content .logo-link img {
+    width: 16px;
 }
 
 .mega-menu .menu-content .main-menu {
@@ -49,6 +54,7 @@
     opacity: 0;
     overflow: hidden;
     height: 0;
+    z-index: 9999;
 }
 
 
@@ -58,6 +64,7 @@
     opacity: 1;
     height: auto;
     padding: 30px 0;
+    z-index: 9999;
 }
 
 .mega-menu .menu-content .main-menu .menu-item .dropdown-item::after {
@@ -96,7 +103,6 @@
 .mega-menu .menu-content .main-menu .dropdown-menu .wrapper .list-option .icon {
     height: 48px;
     width: 48px;
-    border: 1px solid #f1f1f1;
     margin-right: 20px;
 }
 
@@ -137,6 +143,7 @@
     height: auto;
 }
 
+
 .mega-menu .hamburger-menu {
     height: 24px;
     width: 24px;
@@ -144,27 +151,48 @@
     justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0; /* Change opacity to 1 so it becomes visible */
+    visibility: visible; /* Change visibility to visible */
     position: absolute;
+    transition: all 0.3s ease; /* Smooth transition for transformation */
 }
 
 .mega-menu .hamburger-menu .line {
     height: 1px;
     background-color: #f1f1f1;
+    transition: all 0.3s ease; /* Smooth transition for lines */
 }
 
-.mega-menu .hamburger-menu .long-line {
+.mega-menu .hamburger-menu.hamburger-active .line {
+    background-color: #f1f1f1; /* Color when active */
+}
+
+.mega-menu .hamburger-menu.hamburger-active .long-line {
+    transform: rotate(45deg) translate(5px, 5px); /* Rotate and position for X */
     width: 100%;
 }
 
-.mega-menu .hamburger-menu .medium-line {
-    width: 66%;
+.mega-menu .hamburger-menu.hamburger-active .medium-line {
+    opacity: 0; /* Hide medium line */
 }
 
-.mega-menu .hamburger-menu .short-line {
-    width: 33%;
+.mega-menu .hamburger-menu.hamburger-active .short-line {
+    transform: rotate(-45deg) translate(5px, -5px); /* Rotate and position for X */
+    width: 100%;
 }
+
+/* Keep the original styles for non-active state */
+.mega-menu .hamburger-menu .long-line,
+.mega-menu .hamburger-menu .medium-line,
+.mega-menu .hamburger-menu .short-line {
+    transition: all 0.3s ease; /* Smooth transition for lines */
+}
+
+
+
+
+
+
 
 .mega-menu .menu-content,
 .mega-menu .contact {
@@ -188,14 +216,35 @@
     transform: rotate(90deg);
 }
 
+.mega-menu .description {
+    opacity: .6;
+}
+
+.mega-menu .reading {
+    margin-left: 5px;
+    text-decoration: underline 1px;
+}
+
+.mega-menu .reading::before {
+}
+
 @media only screen and (max-width: 768px) {
 
     .mega-menu * {
         font-size: small;
     }
 
+    .mega-menu {
+        padding: 0 20px;
+    }
+
+    .mega-menu .reading {
+        display: none;
+    }
+
     .mega-menu .hamburger-menu {
         opacity: 1;
+        display: flex;
         visibility: visible;
         position: relative;
     }
@@ -244,7 +293,7 @@
         left: 0;
         bottom: 0;
         background: linear-gradient(to right, royalblue, purple);
-        z-index: 1;
+        z-index: 100;
     }
 
     .mega-menu .menu-content .main-menu .menu-item {
@@ -270,7 +319,7 @@
     .mega-menu .contact {
         position: absolute;
         bottom: 0;
-        z-index: 2;
+        z-index: 100;
         height: 3rem;
         text-align: center;
         justify-content: space-between;

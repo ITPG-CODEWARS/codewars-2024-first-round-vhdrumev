@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactSection = document.getElementById("contact");
 
     hamburgerMenu.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("hamburger-active");
+        console.log(hamburgerMenu.classList.contains("active"));
         menuContent.classList.toggle("active");
         contactSection.classList.toggle("active");
     });

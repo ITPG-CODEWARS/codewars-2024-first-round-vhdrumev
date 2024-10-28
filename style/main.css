@@ -1,0 +1,279 @@
+.index-main {
+    padding: 0 calc((100vw - 1200px) / 2);
+}
+
+.index-main .image-text-section {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.index-main .lander {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
+
+.index-main .image-text-section .text-content,
+.index-main .lander .text-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index-main .image-text-section .text-content:not([class*="right"]) {
+    border-left: 1px solid #343434;
+}
+
+.index-main .image-text-section .text-content.right,
+.index-main .lander .text-content {
+    border-right: 1px solid #343434;
+}
+
+.index-main .title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.index-main .title.right {
+    text-align: right;
+}
+
+.index-main .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.index-main .subtitle.right {
+    text-align: right;
+}
+
+.index-main .paragraph {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.index-main .paragraph.right {
+    text-align-last: right;
+}
+
+.index-main :not(.lander) .paragraph::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    background-color: #343434;
+}
+
+.index-main .image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.index-main .image-content img {
+    max-width: 100%;
+    max-height: 1080px;
+    border: 1px solid #343434;
+    height: auto;
+    border-radius: 10px;
+}
+
+.index-main .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.index-main .buttons.right {
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.index-main .buttons .button {
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    color: #f1f1f1;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    margin: 1rem auto;
+    border: 1px solid #f1f1f1;
+}
+.index-main .buttons .button span {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.index-main .buttons .button:hover {
+    color: #121212;
+}
+.index-main .buttons .button:hover span {
+    width: 225%;
+    height: 562px;
+}
+.index-main .buttons .button:active {
+    background-color: #121212;
+}
+
+.index-main .button::before {
+    content: '';
+    position: absolute;
+}
+
+
+
+.title-section {
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.title-section .title {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.title-section .title::before,
+.title-section .title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 2px;
+}
+
+/*.title-section .title::before {
+    left: 0;
+    background: linear-gradient(to right, #5153ca, #5c40b9);
+}
+
+.title-section .title::after {
+    right: 0;
+    background: linear-gradient(to right, #6926a1, #74128f);
+}*/
+
+.title-section .title::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(81, 83, 202, 0), #5153ca, #5c40b9, rgba(81, 83, 202, 0));
+}
+
+.title-section .title::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(105, 38, 161, 0), #6926a1, #74128f, rgba(105, 38, 161, 0));
+}
+
+
+
+
+
+
+/* Let's edit the cards */
+
+.index-main .cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.index-main .card {
+    border: 1px solid #343434;
+    background-color: #060606;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.index-main .card .image {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+}
+
+.index-main .card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.index-main .card .text-content {
+    border-top: 1px solid #343434;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.index-main .card .text-content .description {
+    text-align: justify;
+}
+
+.index-main .card .title {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.index-main .card .description {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .index-main {
+        padding: 20px
+    }
+
+    .index-main .image-text-section,
+    .index-main .lander {
+        flex-direction: column;
+    }
+
+    .index-main .cards {
+        flex-direction: column;
+    }
+
+    .index-main .lander {
+        height: auto;
+    }
+
+    .index-main .buttons,
+    .index-main .buttons.right {
+        flex-direction: column;
+        position: relative;
+    }
+
+}
+
+.infinite-scroll.last {
+    margin-bottom: 5rem;
+}
+

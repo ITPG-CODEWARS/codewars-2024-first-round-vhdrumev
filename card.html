@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updated Tilt Effect Cards</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 50px;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      gap: 20px;
+    }
+
+    .index-main .card {
+      border: 1px solid #555;
+      background-color: #121212;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .index-main .card .image {
+      height: 300px;
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 1px solid #555;
+    }
+
+    .index-main .card .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .index-main .card:hover .image img {
+      transform: scale(1.05);
+    }
+
+    .index-main .card .text-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #ccc;
+    }
+
+    .index-main .card .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f5f5f5;
+      margin-bottom: 10px;
+    }
+
+    .index-main .card .description {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+<div class="index-main">
+  <!-- Example of multiple cards -->
+  <div class="card">
+    <div class="image">
+      <img src="https://via.placeholder.com/300" alt="Sample Image">
+    </div>
+    <div class="text-content">
+      <div class="title">Card Title 1</div>
+      <div class="description">This is a sample description for the first card.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <img src="https://via.placeholder.com/300" alt="Sample Image">
+    </div>
+    <div class="text-content">
+      <div class="title">Card Title 2</div>
+      <div class="description">This is a sample description for the second card.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Select all cards and add tilt effect on hover
+  const cards = document.querySelectorAll('.index-main .card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const { offsetWidth: width, offsetHeight: height } = card;
+      const { offsetX, offsetY } = e;
+      const xRotation = (offsetY / height - 0.5) * 10;
+      const yRotation = (offsetX / width - 0.5) * 10;
+
+      card.style.transform = `perspective(800px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+    });
+  });
+</script>
+</body>
+</html>

@@ -8,11 +8,20 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     transition: all .3s ease-in !important;
+    z-index: 1;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     position: relative;
     overflow-x: hidden;
     background-color: #060606;
-    color: #f1f1f1;
+    color: #ccc;
+}
+
+:root {
+    --color-default: #ccc;
 }

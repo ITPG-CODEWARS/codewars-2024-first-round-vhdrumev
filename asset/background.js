@@ -2,7 +2,7 @@ const container = document.getElementById('dot-container');
 const dotSize = 4;
 const spacing = 30;
 const highlightDuration = 500;
-const baseColor = 'rgba(37, 37, 37, 1)';
+const baseColor = 'rgba(28, 28, 92, 1)'; // normal is 37, 37, 37, 1
 const highlightColor = 'rgba(96, 52, 176, 1)';
 
 let gridRows, gridCols;
@@ -33,7 +33,7 @@ document.addEventListener('mousemove', (e) => {
     dots.forEach(dot => {
         const rect = dot.getBoundingClientRect();
         const distance = Math.hypot(rect.x + dotSize / 2 - e.clientX, rect.y + dotSize / 2 - e.clientY);
-        const maxDistance = 500;
+        const maxDistance = 1000;
         const opacity = Math.max(0, (maxDistance - distance) / maxDistance);
         const baseRGBA = baseColor.match(/[\d.]+/g).map(Number);
         const highlightRGBA = highlightColor.match(/[\d.]+/g).map(Number);
@@ -56,14 +56,10 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key.toLowerCase() === 'e') {
         interactionEnabled = !interactionEnabled;
-
         if (!interactionEnabled) {
             const dots = document.querySelectorAll('.background-dot');
-            dots.forEach(dot => {
-                dot.style.backgroundColor = baseColor;
-            });
+            dots.forEach(dot => { dot.style.backgroundColor = baseColor; });
         }
-
         console.log(`Interaction ${interactionEnabled ? 'enabled' : 'disabled'}`);
     }
 });

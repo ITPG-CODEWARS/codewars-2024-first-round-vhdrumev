@@ -1,0 +1,67 @@
+:root {
+    ---animation-delay: 20s;
+    --item-count: 8;
+}
+
+.infinite-scroll {
+    overflow: hidden;
+    width: 100%;
+    margin-inline: auto;
+    position: relative;
+    max-width: 1200px;
+    height: 100px;
+    margin-bottom: 25px;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+}
+
+@keyframes scroll-normal {
+    to { left: -200px; }
+}
+
+@keyframes scroll-reverse {
+    to { right: -200px; }
+}
+
+.item-normal,
+.item-reverse {
+    border: 1px solid #343434;
+    height: 100px;
+    position: absolute;
+    background-color: #060606;
+    border-radius: 6px;
+    width: 200px;
+}
+
+.item-normal {
+    left: max(calc(200px * var(--item-count)), 100%);
+    animation: scroll-normal var(---animation-delay) linear infinite;
+}
+
+.item-reverse {
+    right: max(calc(200px * var(--item-count)), calc(100% + 200px));
+    animation: scroll-reverse var(---animation-delay) linear infinite;
+}
+.item1 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 1) * -1);
+}
+.item2 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 2) * -1);
+}
+.item3 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 3) * -1);
+}
+.item4 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 4) * -1);
+}
+.item5 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 5) * -1);
+}
+.item6 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 6) * -1);
+}
+.item7 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 7) * -1);
+}
+.item8 {
+    animation-delay: calc(var(---animation-delay) / var(--item-count) * (var(--item-count) - 8) * -1);
+}

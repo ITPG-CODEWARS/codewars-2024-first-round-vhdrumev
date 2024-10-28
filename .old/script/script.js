@@ -1,4 +1,4 @@
-let slideIndex = 0;
+/let slideIndex = 0;
 let slides = document.getElementsByClassName("slide");
 let dots = document.getElementsByClassName("dot");
 let timeoutId;

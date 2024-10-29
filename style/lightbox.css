@@ -17,7 +17,7 @@
 }
 
 .lightbox {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 99999;
     left: 0;
@@ -69,4 +69,34 @@
 
 #next {
     right: 30px;
+}
+
+@media (max-width: 1200px) {
+    .gallery-item {
+        width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .close {
+        font-size: 24px;
+        top: 15px;
+        right: 20px;
+    }
+
+    .nav-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
 }

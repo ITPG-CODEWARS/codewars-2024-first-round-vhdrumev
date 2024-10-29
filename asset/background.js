@@ -54,14 +54,16 @@ document.addEventListener('mousemove', (e) => {
 
 // Toggle interaction on "E" key press
 document.addEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 'e') {
+    if (e.code === 'KeyE') {
         interactionEnabled = !interactionEnabled;
+
         if (!interactionEnabled) {
             const dots = document.querySelectorAll('.background-dot');
             dots.forEach(dot => { dot.style.backgroundColor = baseColor; });
         }
+
         console.log(`Interaction ${interactionEnabled ? 'enabled' : 'disabled'}`);
     }
 });
-
 window.addEventListener('resize', createGrid);
+

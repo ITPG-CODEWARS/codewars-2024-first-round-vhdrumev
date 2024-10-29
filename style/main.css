@@ -101,7 +101,8 @@
     position: relative;
 }
 
-.index-main .buttons .button {
+.index-main .buttons .button,
+.card .button {
     text-align: center;
     text-decoration: none;
     line-height: 40px;
@@ -113,7 +114,8 @@
     margin: 1rem auto;
     border: 1px solid #f1f1f1;
 }
-.index-main .buttons .button span {
+.index-main .buttons .button span,
+.card .button span {
     position: absolute;
     display: block;
     width: 0;
@@ -123,18 +125,22 @@
     transform: translate(-50%, -50%);
     z-index: -1;
 }
-.index-main .buttons .button:hover {
+.index-main .buttons .button:hover,
+.card .button:hover {
     color: #121212;
 }
-.index-main .buttons .button:hover span {
+.index-main .buttons .button:hover span,
+.card .button:hover span {
     width: 225%;
     height: 562px;
 }
-.index-main .buttons .button:active {
+.index-main .buttons .button:active
+.card .button:active {
     background-color: #121212;
 }
 
-.index-main .button::before {
+.index-main .button::before,
+.card .button::before {
     content: '';
     position: absolute;
 }
@@ -188,7 +194,6 @@
 
 
 
-/* Let's edit the cards */
 
 .index-main .cards {
     display: flex;
@@ -259,6 +264,7 @@
 
     .index-main .cards {
         flex-direction: column;
+        gap: 20px;
     }
 
     .index-main .lander {
@@ -276,4 +282,5 @@
 .infinite-scroll.last {
     margin-bottom: 5rem;
 }
+
 

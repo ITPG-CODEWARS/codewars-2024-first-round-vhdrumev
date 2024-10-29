@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.index-main .buttons .button');
+    //const buttons = document.querySelectorAll('.index-main .buttons .button');
+    let buttons = [...document.querySelectorAll('.index-main .buttons .button'),
+        ...document.querySelectorAll('.card .bottom .button')];
 
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function(e) {
@@ -35,7 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let cards = [...document.querySelectorAll('.card'),
     ...document.querySelectorAll('.image-text-section .image-content img'),
-    ...document.querySelectorAll('.lander .image-content img')];
+    ...document.querySelectorAll('.lander .image-content img'),
+    ...document.querySelectorAll('.template-main .image-content .wrapper')];
+
+console.log(cards.length);
 cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const { offsetWidth: width, offsetHeight: height } = card;

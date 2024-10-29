@@ -24,8 +24,11 @@
 
 .item-normal,
 .item-reverse {
+    text-align: center;
+    align-items: center;
     border: 1px solid #343434;
     height: 100px;
+    line-height: 100px;
     position: absolute;
     background-color: #060606;
     border-radius: 6px;
